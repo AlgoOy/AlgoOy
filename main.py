@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -11,6 +12,7 @@ FONT_FILE_MONA = "./fonts/Inversionz.otf"
 
 
 def main():
+    print("Path:", os.getcwd())
     t = gifos.Terminal(750, 500, 15, 15, FONT_FILE_BITMAP, 15)
 
     t.gen_text("", 1, count=20)
