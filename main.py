@@ -13,6 +13,8 @@ FONT_FILE_MONA = "./fonts/Inversionz.otf"
 
 def main():
     print("Path:", os.getcwd())
+    font_path = os.path.join(os.getcwd(), 'fonts', 'gohufont-uni-14.pil')
+    print("Font File Exists:", os.path.isfile(font_path))
     t = gifos.Terminal(750, 500, 15, 15, FONT_FILE_BITMAP, 15)
 
     t.gen_text("", 1, count=20)
