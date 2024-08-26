@@ -1,8 +1,6 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-import gifos
-
 import shutil
 import os
 
