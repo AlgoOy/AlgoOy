@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -12,9 +11,6 @@ FONT_FILE_MONA = "./fonts/Inversionz.otf"
 
 
 def main():
-    print("Path:", os.getcwd())
-    font_path = os.path.join(os.getcwd(), 'fonts', 'gohufont-uni-14.pil')
-    print("Font File Exists:", os.path.isfile(font_path))
     t = gifos.Terminal(750, 500, 15, 15, FONT_FILE_BITMAP, 15)
 
     t.gen_text("", 1, count=20)
@@ -162,32 +158,34 @@ def main():
     t.gen_text("", t.curr_row, count=120, contin=True)
 
     t.gen_gif()
-    image = gifos.utils.upload_imgbb("output.gif", 129600)  # 1.5 days expiration
-    readme_file_content = rf"""<div align="justify">
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="{image.url}">
-    <source media="(prefers-color-scheme: light)" srcset="{image.url}">
-    <img alt="GIFOS" src="{image.url}">
-</picture>
+    gif_file = "assets/github-contribution-terminal.gif"
+    t.save_gif(gif_file)
+#     image = gifos.utils.upload_imgbb("output.gif", 129600)  # 1.5 days expiration
+#     readme_file_content = rf"""<div align="justify">
+# <picture>
+#     <source media="(prefers-color-scheme: dark)" srcset="{image.url}">
+#     <source media="(prefers-color-scheme: light)" srcset="{image.url}">
+#     <img alt="GIFOS" src="{image.url}">
+# </picture>
 
-<!-- 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AlgoOy/AlgoOy/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AlgoOy/AlgoOy/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/AlgoOy/AlgoOy/output/github-contribution-grid-snake.svg">
-</picture>
--->
+# <!-- 
+# <picture>
+#   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AlgoOy/AlgoOy/output/github-contribution-grid-snake-dark.svg">
+#   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AlgoOy/AlgoOy/output/github-contribution-grid-snake.svg">
+#   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/AlgoOy/AlgoOy/output/github-contribution-grid-snake.svg">
+# </picture>
+# -->
 
-<!-- <details>
-<summary>More details</summary>
+# <!-- <details>
+# <summary>More details</summary>
 
-</details> -->
-</div>
+# </details> -->
+# </div>
 
-<!-- Image deletion URL: {image.delete_url} -->"""
-    with open("README.md", "w") as f:
-        f.write(readme_file_content)
-        print("INFO: README.md file generated")
+# <!-- Image deletion URL: {image.delete_url} -->"""
+#     with open("README.md", "w") as f:
+#         f.write(readme_file_content)
+#         print("INFO: README.md file generated")
 
 
 if __name__ == "__main__":

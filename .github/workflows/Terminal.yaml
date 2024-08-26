@@ -26,19 +26,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install git+https://github.com/x0rzavi/github-readme-terminal.git@main
 
-      - name: Check file permissions
-        run: ls -l ./fonts/gohufont-uni-14.pil
-
       - name: Run script
         run: python main.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          # IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           GIFOS_GENERAL_FPS: 13
           GIFOS_GENERAL_LOOP_COUNT: 4
 
-      - name: Update readme
-        run: |
-          git add README.md
-          git -c "user.name=bot" -c "user.email=bot@github.com" commit -m "Automatically updated on $(TZ='Asia/Kolkata' date)"
-          git push
+      - name: Push GIF to assets branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: assets
+          build_dir: assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
