@@ -3,6 +3,9 @@ from zoneinfo import ZoneInfo
 
 import gifos
 
+import shutil
+import os
+
 FONT_FILE_LOGO = "./fonts/vtks-blocketo.regular.ttf"
 # FONT_FILE_BITMAP = "./fonts/ter-u14n.pil"
 FONT_FILE_BITMAP = "./fonts/gohufont-uni-14.pil"
@@ -158,8 +161,18 @@ def main():
     t.gen_text("", t.curr_row, count=120, contin=True)
 
     t.gen_gif()
-    gif_file = "assets/github-contribution-terminal.gif"
-    t.save_gif(gif_file)
+
+    # 定义源文件路径和目标路径
+    source_file = "output.gif"
+    target_directory = "assets"
+    target_file = os.path.join(target_directory, "github-contribution-terminal.gif")
+
+    # 确保目标目录存在
+    os.makedirs(target_directory, exist_ok=True)
+
+    # 移动文件
+    shutil.move(source_file, target_file)
+
 #     image = gifos.utils.upload_imgbb("output.gif", 129600)  # 1.5 days expiration
 #     readme_file_content = rf"""<div align="justify">
 # <picture>
