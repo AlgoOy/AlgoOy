@@ -37,7 +37,7 @@ jobs:
           # IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           GIFOS_GENERAL_FPS: 120
           GIFOS_GENERAL_LOOP_COUNT: 1
-          GIFOS_GENERAL_USER_NAME: AlgoOy
+          GIFOS_GENERAL_USER_NAME: "AlgoOy"
 
       - name: Push GIF to assets branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
