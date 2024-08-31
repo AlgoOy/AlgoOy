@@ -83,17 +83,17 @@ def main():
 
     ignore_repos = ["archiso-zfs", "archiso-zfs-archive"]
     git_user_details = gifos.utils.fetch_github_stats("AlgoOy", ignore_repos)
-    user_age = gifos.utils.calc_age(26, 7, 2002)
+    user_age = gifos.utils.calc_age(1, 1, 2000)
     t.clear_frame()
     top_languages = [lang[0] for lang in git_user_details.languages_sorted]
     user_details_lines = f"""
     \x1b[30;101mAlgoOy@GitHub\x1b[0m
     --------------
-    \x1b[96mOS:     \x1b[93mArch/Gentoo Linux, Windows 11, Android 14\x1b[0m
-    \x1b[96mHost:   \x1b[93mNetaji Subhash Engineering College \x1b[94m#NSEC\x1b[0m
-    \x1b[96mKernel: \x1b[93mComputer Science & Engineering \x1b[94m#CSE\x1b[0m
+    \x1b[96mOS:     \x1b[93mArch/Linux, RTOS\x1b[0m
+    \x1b[96mHost:   \x1b[93mEast China Normal University \x1b[94m#ECNU\x1b[0m
+    \x1b[96mKernel: \x1b[93mSoftware Engineering \x1b[94m#SE\x1b[0m
     \x1b[96mUptime: \x1b[93m{user_age.years} years, {user_age.months} months, {user_age.days} days\x1b[0m
-    \x1b[96mIDE:    \x1b[93mneovim, VSCode\x1b[0m
+    \x1b[96mIDE:    \x1b[93mkeil, VSCode, Clion\x1b[0m
     
     \x1b[30;101mContact:\x1b[0m
     --------------
